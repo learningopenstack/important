@@ -204,6 +204,58 @@ int main(){
 
 }
 ```
+###　图式虚函数
+```c++
+class A {
+public:
+    virtual void vfunc1(){
+        std::cout << "A vfunc1() == " << std::endl;
+    }
+
+    virtual void vfunc2(){
+        std::cout << "A vfunc2() == " << std::endl;
+    }
+
+    void func1(){
+        std::cout << "A func1() == " << std::endl;
+    }
+    void func2(){
+        std::cout << "A func2() ==" << std::endl;
+    }
+};
+
+
+class B : public A {
+public:
+    void vfunc1(){
+        std::cout  << " vfunc1 B == " << std::endl;
+    }
+
+    void func1(){
+        std::cout << "func1() B == " << std::endl;
+    }
+};
+
+class C : public B{
+public:
+    void vfunc1(){
+        std::cout << "C vfunc1 == " << std::endl;
+    }
+
+    void func1(){
+        std::cout << "func1() c == " << std::endl;
+    }
+};
+```
+![avatar](https://github.com/tianser/work/blob/master/001_dataStruct/pic/vfunction.png)
+ 
+ 首先给vptr分配地址，它所占字节数决定对象中最长数据成员的长度。因为3个类的数据成员都是整型，所以VC为vptr分配4个字节。如果有double型的数据，则要分配8个字节。</br>
+　从图中可见，对象的起始地址是vptr。它指向vtable，vtable为每个虚函数建立一个指针函数;</br>
+  如果只是继承基类的虚函数，则它们调用基类的虚函数，这就是b和c的vtable表中(*vfunc2)( )项所描述的情况。</br>
+  如果派生类改写了基类的虚函数，则调用自己的虚函数，这就是b和c的vtable表中(*vfunc1)( )项所描述的情况。</br>
+　　
+  实函数不是通过地址调用，用带底纹的方框表示，它们由对象的名字支配规律决定。
+
 #### 构造函数和析构函数调用虚函数
   
   在构造函数和析构函数中调用虚函数时，采用静态联编，即它们所调用的虚函数是自己的类或基类中定义的函数，但不是任何在派生类中重定义的虚函数。  
