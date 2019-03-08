@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/ppt.dir/main.cpp.o  -o ppt -lpthread 

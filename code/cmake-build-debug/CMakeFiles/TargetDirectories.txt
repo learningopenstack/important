@@ -1,0 +1,3 @@
+/root/important/code/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/root/important/code/cmake-build-debug/CMakeFiles/ppt.dir
+/root/important/code/cmake-build-debug/CMakeFiles/edit_cache.dir

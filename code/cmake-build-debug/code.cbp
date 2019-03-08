@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="code"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/root/important/code/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/root/important/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/root/important/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/root/important/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/root/important/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/root/important/code/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/root/important/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/root/important/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/root/important/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/root/important/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="code">
+				<Option output="/root/important/code/cmake-build-debug/code" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/root/important/code/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/root/important/code/algorithm/common"/>
+					<Add directory="/root/important/code/algorithm/smartPointer"/>
+					<Add directory="/root/important/code/algorithm/test"/>
+					<Add directory="/root/important/code/link"/>
+					<Add directory="/root/important/code/smartPointer"/>
+					<Add directory="/root/important/code/threadPool"/>
+					<Add directory="/root/important/code/tree"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/root/important/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 code"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/root/important/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/root/important/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/root/important/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="code/fast">
+				<Option output="/root/important/code/cmake-build-debug/code" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/root/important/code/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/root/important/code/algorithm/common"/>
+					<Add directory="/root/important/code/algorithm/smartPointer"/>
+					<Add directory="/root/important/code/algorithm/test"/>
+					<Add directory="/root/important/code/link"/>
+					<Add directory="/root/important/code/smartPointer"/>
+					<Add directory="/root/important/code/threadPool"/>
+					<Add directory="/root/important/code/tree"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/root/important/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 code/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/root/important/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/root/important/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/root/important/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/root/important/code/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/root/important/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/root/important/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/root/important/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/root/important/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/root/important/code/algorithm/common/Link.h">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/algorithm/design/simple_factory.cpp">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/algorithm/dynamicProgram/coin.cpp">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/algorithm/dynamicProgram/line.cpp">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/algorithm/friend.cpp">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/algorithm/other/twoNum.cpp">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/algorithm/priority_queue.cpp">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/algorithm/rank/fast_sort.cpp">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/algorithm/rank/mergeLink.cpp">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/algorithm/rank/merge_sort.cpp">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/algorithm/rank/sort.cpp">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/algorithm/search/BinarySearch.cpp">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/algorithm/smartPointer/smartPointer.h">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/algorithm/smartPointer/smartPointerTest.h">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/algorithm/smartPointer/sp.cpp">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/algorithm/test/demo.cpp">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/algorithm/test/demo2.cpp">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/algorithm/test/fast_rank.cpp">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/algorithm/test/link.cpp">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/algorithm/test/lruCache.cpp">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/algorithm/test/merge.cpp">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/algorithm/test/printMaritx.cpp">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/algorithm/test/singleton.h">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/algorithm/test/singleton2.cpp">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/algorithm/test/stack.cpp">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/algorithm/test/tree.cpp">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/link/link.h">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/main.cpp">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/smartPointer/smartPointer.h">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/sort/fast_sort.cpp">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/sort/merge_sort.cpp">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/threadPool/pool.h">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/threadPool/task.h">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/threadPool/threadpool_test.hpp">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/tree/heap.cpp">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/tree/isSameTree.cpp">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/tree/op.cpp">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/tree/red_black.h">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/tree/tree.h">
+			<Option target="code"/>
+		</Unit>
+		<Unit filename="/root/important/code/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
