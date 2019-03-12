@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ppt.dir/main.cpp.o"
+  "CMakeFiles/ppt.dir/test/gtest.cpp.o"
+  "CMakeFiles/ppt.dir/c11-template/template.cpp.o"
   "ppt.pdb"
   "ppt"
 )

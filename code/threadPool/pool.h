@@ -53,22 +53,22 @@ public:
     }
 };
 
-class ThreadPool{
+class ThreadPool2{
 private:
     std::queue<Task *> task_queue;
     std::vector<Thread*> _pool;
     std::mutex _lock;
 public:
-    ThreadPool(int n=10){
+    ThreadPool2(int n=10){
         while(n--){
             Thread *t = new Thread();
             _pool.push_back(t);
         }
-        std::thread main_thread(&ThreadPool::run, this);
+        std::thread main_thread(&ThreadPool2::run, this);
         main_thread.detach();
     }
 
-    ~ThreadPool(){
+    ~ThreadPool2(){
         for(int i=0; i<_pool.size(); i++){
             delete _pool[i];
         }

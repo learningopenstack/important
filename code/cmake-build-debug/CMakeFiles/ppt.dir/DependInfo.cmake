@@ -4,7 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/root/important/code/c11-template/template.cpp" "/root/important/code/cmake-build-debug/CMakeFiles/ppt.dir/c11-template/template.cpp.o"
   "/root/important/code/main.cpp" "/root/important/code/cmake-build-debug/CMakeFiles/ppt.dir/main.cpp.o"
+  "/root/important/code/test/gtest.cpp" "/root/important/code/cmake-build-debug/CMakeFiles/ppt.dir/test/gtest.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -123,6 +123,33 @@ ppt/fast:
 	$(MAKE) -f CMakeFiles/ppt.dir/build.make CMakeFiles/ppt.dir/build
 .PHONY : ppt/fast
 
+c11-template/template.o: c11-template/template.cpp.o
+
+.PHONY : c11-template/template.o
+
+# target to build an object file
+c11-template/template.cpp.o:
+	$(MAKE) -f CMakeFiles/ppt.dir/build.make CMakeFiles/ppt.dir/c11-template/template.cpp.o
+.PHONY : c11-template/template.cpp.o
+
+c11-template/template.i: c11-template/template.cpp.i
+
+.PHONY : c11-template/template.i
+
+# target to preprocess a source file
+c11-template/template.cpp.i:
+	$(MAKE) -f CMakeFiles/ppt.dir/build.make CMakeFiles/ppt.dir/c11-template/template.cpp.i
+.PHONY : c11-template/template.cpp.i
+
+c11-template/template.s: c11-template/template.cpp.s
+
+.PHONY : c11-template/template.s
+
+# target to generate assembly for a file
+c11-template/template.cpp.s:
+	$(MAKE) -f CMakeFiles/ppt.dir/build.make CMakeFiles/ppt.dir/c11-template/template.cpp.s
+.PHONY : c11-template/template.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -150,6 +177,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/ppt.dir/build.make CMakeFiles/ppt.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+test/gtest.o: test/gtest.cpp.o
+
+.PHONY : test/gtest.o
+
+# target to build an object file
+test/gtest.cpp.o:
+	$(MAKE) -f CMakeFiles/ppt.dir/build.make CMakeFiles/ppt.dir/test/gtest.cpp.o
+.PHONY : test/gtest.cpp.o
+
+test/gtest.i: test/gtest.cpp.i
+
+.PHONY : test/gtest.i
+
+# target to preprocess a source file
+test/gtest.cpp.i:
+	$(MAKE) -f CMakeFiles/ppt.dir/build.make CMakeFiles/ppt.dir/test/gtest.cpp.i
+.PHONY : test/gtest.cpp.i
+
+test/gtest.s: test/gtest.cpp.s
+
+.PHONY : test/gtest.s
+
+# target to generate assembly for a file
+test/gtest.cpp.s:
+	$(MAKE) -f CMakeFiles/ppt.dir/build.make CMakeFiles/ppt.dir/test/gtest.cpp.s
+.PHONY : test/gtest.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -159,9 +213,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... ppt"
 	@echo "... edit_cache"
+	@echo "... c11-template/template.o"
+	@echo "... c11-template/template.i"
+	@echo "... c11-template/template.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... test/gtest.o"
+	@echo "... test/gtest.i"
+	@echo "... test/gtest.s"
 .PHONY : help
 
 

@@ -84,10 +84,16 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/root/important/code/c11-template/template.cpp">
+			<Option target="ppt"/>
+		</Unit>
 		<Unit filename="/root/important/code/link/link.h">
 			<Option target="ppt"/>
 		</Unit>
 		<Unit filename="/root/important/code/main.cpp">
+			<Option target="ppt"/>
+		</Unit>
+		<Unit filename="/root/important/code/test/gtest.cpp">
 			<Option target="ppt"/>
 		</Unit>
 		<Unit filename="/root/important/code/threadPool/pool.h">

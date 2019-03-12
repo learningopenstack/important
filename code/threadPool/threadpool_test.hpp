@@ -4,7 +4,7 @@
 #include "pool.h"
 
 int testPool(){
-    ThreadPool tp(2);
+    ThreadPool2 tp(2);
 
     Task t1(1);
     Task t2(2);
