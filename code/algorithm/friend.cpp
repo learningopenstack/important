@@ -25,6 +25,8 @@ int getA(A& classA){
     return classA.a;
 }
 
+
+
 /*
  * 友元类声明在该类中，实现在该类外
  */

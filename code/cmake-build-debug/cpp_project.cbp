@@ -84,13 +84,28 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/root/important/code/algorithm/test/smartPoint.hpp">
+			<Option target="ppt"/>
+		</Unit>
 		<Unit filename="/root/important/code/c11-template/template.cpp">
+			<Option target="ppt"/>
+		</Unit>
+		<Unit filename="/root/important/code/design/factory.h">
+			<Option target="ppt"/>
+		</Unit>
+		<Unit filename="/root/important/code/design/factoryTest.hpp">
+			<Option target="ppt"/>
+		</Unit>
+		<Unit filename="/root/important/code/design/observer.hpp">
 			<Option target="ppt"/>
 		</Unit>
 		<Unit filename="/root/important/code/link/link.h">
 			<Option target="ppt"/>
 		</Unit>
 		<Unit filename="/root/important/code/main.cpp">
+			<Option target="ppt"/>
+		</Unit>
+		<Unit filename="/root/important/code/smartPointer/stdSmartPointer.hpp">
 			<Option target="ppt"/>
 		</Unit>
 		<Unit filename="/root/important/code/test/gtest.cpp">

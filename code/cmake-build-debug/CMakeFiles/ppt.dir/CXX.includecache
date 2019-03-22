@@ -6,6 +6,32 @@
 
 #IncludeRegexTransform: 
 
+/root/important/code/algorithm/test/smartPoint.hpp
+iostream
+-
+memory
+-
+
+/root/important/code/design/factory.h
+string
+-
+
+/root/important/code/design/factoryTest.hpp
+iostream
+-
+string
+-
+factory.h
+/root/important/code/design/factory.h
+
+/root/important/code/design/observer.hpp
+list
+-
+algorithm
+-
+iostream
+-
+
 /root/important/code/main.cpp
 iostream
 -
@@ -15,11 +41,19 @@ threadPool/task.h
 /root/important/code/threadPool/task.h
 gtest/gtest.h
 -
+algorithm/test/smartPoint.hpp
+/root/important/code/algorithm/test/smartPoint.hpp
+design/factoryTest.hpp
+/root/important/code/design/factoryTest.hpp
+design/observer.hpp
+/root/important/code/design/observer.hpp
+smartPointer/stdSmartPointer.hpp
+/root/important/code/smartPointer/stdSmartPointer.hpp
 
-/root/important/code/test/gtest.cpp
+/root/important/code/smartPointer/stdSmartPointer.hpp
 iostream
 -
-gtest/gtest.h
+memory
 -
 
 /root/important/code/threadPool/pool.h

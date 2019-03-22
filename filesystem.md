@@ -13,3 +13,17 @@
      2)、再根据Inodenumber读取到文件的Inodetable
      3)、再根据Inodetable中的Pointer读取到相应的Blocks
 这里有一个重要的内容，就是Directory，他不是我们通常说的目录，而是一个列表，记录了一个文件/目录名称对应的Inodenumber。
+
+
+### super_block
+
+```c++
+
+
+```
+
+
+
+
+
+

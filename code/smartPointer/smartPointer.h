@@ -4,11 +4,6 @@
 
 #ifndef CPP_PROJECT_SMARTPOINTER_H
 #define CPP_PROJECT_SMARTPOINTER_H
-
-
-#ifndef SMARTPOINTER_H
-#define SMARTPOINTER_H
-
 namespace DTLib {
 
     template <typename T>
@@ -61,11 +56,5 @@ namespace DTLib {
     };
 
 }
-
-
-#endif
-
-
-
 
 #endif //CPP_PROJECT_SMARTPOINTER_H
