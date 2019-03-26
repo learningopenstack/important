@@ -190,4 +190,145 @@ http://guojing.me/linux-kernel-architecture/posts/super-block-object/
 目录项的目的就是提高文件查找，比较的效率，所以访问过的目录项都会缓存在slab中。
 slab中缓存的名称一般就是 dentry(目录项对象结构)，可以通过如下命令查看：
 
+### 内核访问块设备的方法
+  内核通过文件系统访问块设备时，需要先把块读入到内存中，所以文件系统为了管理块设备，必须管理块和内存页之间的映射;
+  内核中有两种方法来管理块和内存页之间的映射：
+    - 缓冲区和缓冲区头
+    - bio
+#### 缓冲区和缓冲区头
+  每个 [块] 都是一个缓冲区，同时对每个 [块] 都定义一个缓冲区头来描述它。
+  由于 [块] 的大小是小于内存页的大小的，所以每个内存页会包含一个或者多个 [块]。
+```c++
+//<linux/buffer_head.h>: include/linux/buffer_head.h
+struct buffer_head{
+  unsigned long b_state;
+  struct buffer_head *b_this_page; 
+  struct page *b_page;
+  
+  sector_t b_blocknr;
+  size_t b_size;
+  char *b_data;
+  
+  struct block_device *b_bdev;
+  bh_end_io_t *b_end_io;
+  void *b_private;
+  struct list_head b_assoc_buffers;
+  struct address_space *b_assoc_map;
+  atomic_t b_count;
+};
+```
+在2.6之前的内核中，主要就是通过缓冲区头来管理 [块] 和内存之间的映射的。
 
+用缓冲区头来管理内核的 I/O 操作主要存在以下2个弊端，所以在2.6开始的内核中，缓冲区头的作用大大降低了。
+- 弊端 1
+  对内核而言，操作内存页是最为简便和高效的，所以如果通过缓冲区头来操作的话（缓冲区 即[块]在内存中映射，可能比页面要小），效率低下。
+而且每个 [块] 对应一个缓冲区头的话，导致内存的利用率降低（缓冲区头包含的字段非常多）
+- 弊端 2
+  每个缓冲区头只能表示一个 [块]，所以内核在处理大数据时，会分解为对一个个小的 [块] 的操作，造成不必要的负担和空间浪费。
+ 
+#### bio
+  bio结构体的出现就是为了改善上面缓冲区头的2个弊端，它表示了一次 I/O 操作所涉及到的所有内存页。
+```c++
+/*
+ * I/O 操作的主要单元，针对 I/O块和更低级的层 (ie drivers and
+ * stacking drivers)
+ */
+struct bio {
+    sector_t        bi_sector;    /* 磁盘上相关扇区 */
+    struct bio        *bi_next;    /* 请求列表 */
+    struct block_device    *bi_bdev; /* 相关的块设备 */
+    unsigned long        bi_flags;    /* 状态和命令标志 */
+    unsigned long        bi_rw;        /* 读还是写 */
+
+    unsigned short        bi_vcnt;    /* bio_vecs的数目 */
+    unsigned short        bi_idx;        /* bio_io_vect的当前索引 */
+
+    /* Number of segments in this BIO after
+     * physical address coalescing is performed.
+     * 结合后的片段数目
+     */
+    unsigned int        bi_phys_segments;
+
+    unsigned int        bi_size;    /* 剩余 I/O 计数 */
+
+    /*
+     * To keep track of the max segment size, we account for the
+     * sizes of the first and last mergeable segments in this bio.
+     * 第一个和最后一个可合并的段的大小
+     */
+    unsigned int        bi_seg_front_size;
+    unsigned int        bi_seg_back_size;
+
+    unsigned int        bi_max_vecs;    /* bio_vecs数目上限 */
+    unsigned int        bi_comp_cpu;    /* 结束CPU */
+
+    atomic_t        bi_cnt;        /* 使用计数 */
+    struct bio_vec        *bi_io_vec;    /* bio_vec 链表 */
+    bio_end_io_t        *bi_end_io; /* I/O 完成方法 */
+    void            *bi_private;    /* bio结构体创建者的私有方法 */
+#if defined(CONFIG_BLK_DEV_INTEGRITY)
+    struct bio_integrity_payload *bi_integrity;  /* data integrity */
+#endif
+    bio_destructor_t    *bi_destructor;    /* bio撤销方法 */
+    /*
+     * We can inline a number of vecs at the end of the bio, to avoid
+     * double allocations for a small number of bio_vecs. This member
+     * MUST obviously be kept at the very end of the bio.
+     * 内嵌在结构体末尾的 bio 向量，主要为了防止出现二次申请少量的 bio_vecs
+     */
+    struct bio_vec        bi_inline_vecs[0];
+};
+```
+```c++
+struct request{
+  struct list_head queulist;
+  struct call_single_data csd;
+  
+  struct request_queue *q;
+  unsigned int cmd_flags;
+  
+  enum rq_cmd_type_bits cmd_type;
+  unsigned long atomic_flags;
+};
+```
+谓的合并指的是该bio所请求的io是否与当前已有request在物理磁盘块上连续，如果是，无需分配新的request，直接将该请求添加至已有request，
+这样一次便可传输更多数据，提升IO效率，这其实也是整个IO系统的核心所在。
+
+linux下如何实现文件一致性：
+  - 提供特定接口(fsync,fdatasync, sync),调用接口来主动保证文件系统一致性;
+  - 系统中存在定期任务（表现形式为内核线程，周期性地同步文件系统中文件脏数据块;
+  
+这两种方式互相补充，方式1可保证文件数据的强一致性，但效率较为低下，每次写入必须等待数据写入磁盘方可返回，方式2克服了1的低效，
+但无法保证文件数据的always consistent。
+  
+//IO系统磁盘调度子系统的ftrace跟踪，blktrace跟踪事件;
+  - 请求相关
+    Q - queued：bio请求进入调度
+    G - get request 分配request
+    I - inserted request进入io调动器
+  
+  - 调动相关  
+      B - bounced：硬件无法访问内存，需要把内存降低到硬件可访问
+      M - back merge： request 和前一个request从后面合并
+      F - front merge： request 和前一个request从前面合并
+      X - split： request分析为多个子request
+      A - remap： 基于分区等，重新映射request的位置
+      R - requeue： request重新回到调度队列
+      S - sleep： 调度器进入休眠
+      P - plug： 调动队列插入设备（准备合并）
+      U - unplug： 调度队列离开设备
+      T - unplug due to timer 超时，
+
+  - 发出相关
+    C - complete：完成一个request的调度（无论成功还是失败）
+    D - issued：发送到设备，这个是从下层硬件驱动发起的   
+      
+      
+      
+      
+       
+      
+
+https://zhuanlan.zhihu.com/p/44608189
+https://blog.csdn.net/joker0910/article/details/8250085 //Radix树在Linux中的应用
+https://www.cnblogs.com/huangxincheng/archive/2012/11/25/2788268.html //trie树 
